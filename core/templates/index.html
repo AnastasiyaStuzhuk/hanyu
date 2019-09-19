@@ -1,0 +1,405 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {% load static %}
+  <link href="{% static "css/style.min.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+  HanYu
+{% endblock %}
+
+{% block nav %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+
+    <!-- Brand -->
+    <div class="navbar-brand">
+      <strong>HanYu</strong>
+    </div>
+
+    {% include "nav-items.html"%}
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<!--Image background-->
+
+<div class="view">
+  <!--Video source-->
+  <video class="video-intro" autoplay loop muted>
+    <source src="{% static '8.mp4' %}" type="video/mp4">
+  </video>
+
+  <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">            
+
+    <!-- Content -->
+    <div class="text-center white-text mx-5 wow fadeIn">
+      <h1 class="mb-4">
+        <strong>Изучайте китайский вместе с HanYu</strong>
+      </h1>
+      <p>
+        <strong>Совершенствуйте свои навыки и повышайте уровень владения китайским языком</strong>
+      </p>
+      <a href="{% url 'django_registration_register' %}" class="btn btn-outline-white btn-lg">Начать обучение
+        <i class="fas fa-graduation-cap ml-2"></i>
+      </a>
+    </div>
+    <!-- /Content -->
+  </div>
+  <!-- /Mask & flexbox options-->
+</div>
+<!--/Image background-->
+
+<!--Main layout-->
+<main>
+
+  <div class="container">
+  <!--Section: Main info-->
+  <section class="mt-5 wow fadeIn">
+
+  <!--Grid row-->
+  <div class="row">
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+      <img src="{% static 'img/hanyu.jpg' %}" class="img-fluid z-depth-1-half"
+        alt="">
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+      <!-- Main heading -->
+      <h3 class="h3 mb-3">Китайский язык с HanYu</h3>
+      <p>Изучай китайския язык в любое удобное для тебя время. Пополняй словарный запас, благодаря прохождению уроков, содержащих лексику, грамматику и тесты.</p>
+      <!-- Main heading -->
+      <hr>
+    <p>
+        Ты готовишься к сдаче языкового экзамена (HSK) на получение сертификата, собираешься путешествовать и посетить Китай или тебе просто интересен язык и культура?</p>
+        <strong>Повышай свой уровень владения языком вместе с нами!</strong>     
+    </div>
+    <!--/Grid column-->
+  </div>
+  <!--Grid row-->
+  </section>
+  <!--Section: Main info-->
+
+  <hr class="mb-5">
+
+  <!--Section: More-->
+  <section>
+
+  <h2 class="my-5 h3 text-center">Преимущества курсов HanYu</h2>
+
+  <!--First row-->
+  <div class="row features-small mt-5 wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-globe fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2 pl-3">
+          <h5 class="feature-title font-bold mb-1">Онлайн курсы</h5>
+          <p class="grey-text mt-2">Ты можешь заходить на сайт и проходить курсы в любое удобное время и в любом месте при наличии интернета.
+          </p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-level-up-alt fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2">
+          <h5 class="feature-title font-bold mb-1">Шаг за шагом</h5>
+          <p class="grey-text mt-2">Выбирай уровни от начального до сложного.  HanYu поможет начать с нуля и достигнуть поставленных целей в изучении языка
+          </p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-tasks fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2">
+          <h5 class="feature-title font-bold mb-1">Подготовка к HSK</h5>
+          <p class="grey-text mt-2">В первую очередь курсы сайта созданы для готовящихся к сдаче экзамена на определение уровня владения китайским языком.
+          </p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->       
+  </div>
+  <!--/First row-->
+
+  <!--Second row-->
+  <div class="row features-small mt-4 wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-clipboard-list fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2">
+          <h5 class="feature-title font-bold mb-1">Содержание уроков</h5>
+          <p class="grey-text mt-2">Каждый урок был создан для эффективного изучения языка и содержит лексику, грамматику и тесты.
+          </p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-paint-brush fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2">
+          <h5 class="feature-title font-bold mb-1">Иероглифы</h5>
+          <p class="grey-text mt-2">На сайте доступен раздел с иероглифами, благодаря которому можно посмотреть правильную последовательность написания иероглифических черт.</p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-xl-4 col-lg-6">
+      <!--Grid row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-laptop fa-2x mb-1 indigo-text" aria-hidden="true"></i>
+        </div>
+        <div class="col-10 mb-2">
+          <h5 class="feature-title font-bold mb-1">Практика</h5>
+          <p class="grey-text mt-2">Тренируйся в отрисовке иероглифов, а также проходи тесты для закрепления материала.
+          </p>
+        </div>
+      </div>
+      <!--/Grid row-->
+    </div>
+    <!--/Grid column-->   
+  </div>
+  <!--/Second row-->
+  </section>
+  <!--Section: More-->
+
+  <hr class="my-5">
+
+  <!--Уроки HanYu-->
+  <section>
+
+  <h3 class="h3 text-center mb-5">Уроки HanYu</h3>
+
+  <!--Grid row-->
+  <div class="row wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-md-12 px-4">
+
+      <!--First row-->
+      <div class="row">
+        <div class="col-1 mr-3">
+          <i class="fas fa-brain fa-2x indigo-text"></i>
+        </div>
+        <div class="col-10">
+          <h5 class="feature-title">Лексика</h5>
+          <p class="grey-text">Читайте тексты, диалоги на китайском с переводом и пополняйте словарный запас.</p>
+        </div>
+      </div>
+      <!--/First row-->
+
+      <div style="height:30px"></div>
+
+      <!--Second row-->
+      <div class="row">
+        <div class="col-1 mr-3">
+          <i class="fas fa-book fa-2x blue-text"></i>
+        </div>
+        <div class="col-10">
+          <h5 class="feature-title">Грамматика</h5>
+          <p class="grey-text">После прочтения текстов и диалогов можно просмотреть грамматические правила с примерами использования.
+          </p>
+        </div>
+      </div>
+      <!--/Second row-->
+
+      <div style="height:30px"></div>
+
+      <!--Third row-->
+      <div class="row">
+        <div class="col-1 mr-3">
+          <i class="fas fa-graduation-cap fa-2x cyan-text"></i>
+        </div>
+        <div class="col-10">
+          <h5 class="feature-title">Тест</h5>
+          <p class="grey-text">После освоения лексического материала необходимо пройти тест и закрепить полученные знания для перехода на следующий урок. </p>
+        </div>
+      </div>
+      <!--/Third row-->
+
+    </div>
+    <!--/Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-md-12">
+
+      <img src="{% static 'img/lesson.jpg' %}" class="img-fluid z-depth-1-half"
+        alt="">
+
+    </div>
+    <!--/Grid column-->
+
+  </div>
+  <!--/Grid row-->
+
+  </section>
+  <!--Section: Уроки HanYu-->
+
+  <hr class="my-5">
+
+  <!--Section: Уровни HSK-->
+  <section>
+
+  <h2 class="my-5 h3 text-center">Уровни HSK</h2>
+
+  <!--First row-->
+  <div class="row features-small mb-5 mt-3 wow fadeIn">
+
+    <!--First column-->
+    <div class="col-md-4">
+      <!--First row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 1</h6>
+          <p class="grey-text">Разработан для начинающих, которые могут понимать и использовать некоторые китайские иероглифы и предложения в разговоре. 
+          </p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/First row-->
+
+      <!--Second row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 2</h6>
+          <p class="grey-text">Разработан для начинающих, которые могут использовать китайский язык на базовом уровне в повседневной жизни.
+          </p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/Second row-->
+
+      <!--Third row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 3</h6>
+          <p class="grey-text">Разработан для обучающихся начинающего-среднего уровня, которые могут решать повседневные задачи в жизни и могут общаться во время путешествий по Китаю.</p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/Third row-->
+    </div>
+    <!--/First column-->
+
+    <!--Second column-->
+    <div class="col-md-4 flex-center">
+      <img src="{% static 'img/hsk.png' %}" class="z-depth-0 img-fluid">
+    </div>
+    <!--/Second column-->
+
+    <!--Third column-->
+    <div class="col-md-4 mt-2">
+      <!--First row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 4</h6>
+          <p class="grey-text">Разработан для обучающихся среднего уровня, которые способны говорить на широкий список тем на китайском.
+          </p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/First row-->
+
+      <!--Second row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 5</h6>
+          <p class="grey-text">Разработан для обучающихся, которые могут читать газеты и журналы, смотреть фильмы и писать на китайском языке.</p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/Second row-->
+
+      <!--Third row-->
+      <div class="row">
+        <div class="col-2">
+          <i class="fas fa-check-circle fa-2x green-text"></i>
+        </div>
+        <div class="col-10">
+          <h6 class="feature-title">HSK 6</h6>
+          <p class="grey-text">Разработан для обучающихся, с легкостью понимающих любую информацию на китайском языке и свободно изъясняющихся в письменной и устной форме. 
+          </p>
+          <div style="height:15px"></div>
+        </div>
+      </div>
+      <!--/Third row-->
+
+    </div>
+    <!--/Third column-->
+
+  </div>
+  <!--/First row-->
+
+  </section>
+  <!--Section: Уровни HSK-->
+
+
+  </div>
+</main>
+<!--Main layout-->
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+</script>
+{% endblock %}

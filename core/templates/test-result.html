@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Тест завершен | HanYu
+{% endblock %}
+
+{% block content%}
+<h1 class="text-center mt-5">
+  Вы правильно ответили на {{ test_result.points }} из {{ test_result.words_count }} вопросов
+</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <a href="{% url 'course' pk=test_result.lesson.course.id %}">Назад к курсу</a>
+  </div>
+</div>
+<a></a>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Курсы | HanYu
+{% endblock %}
+
+{% load static %}
+{% block head %}
+  <link href="{% static "css/courses.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row mt-4">
+    {% for course in object_list %}
+      <div class="col-sm-4">
+        <div class="card">
+          <!-- Card image -->
+          <div class="view overlay course-image">
+            <div class="course-image__ratio-frame">
+              
+              <img class="card-img-top" src="{{ MEDIA_URL }}{{ course.thumbnail.url }}" alt="">
+              <a href="{% url 'course' course.id %}">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+          </div>
+        
+          <!-- Card content -->
+          <div class="card-body">
+        
+            <!-- Title -->
+            <h4 class="card-title">{{course.name}}</h4>
+            <!-- Text -->
+            <p class="card-text">{{course.description}}</p>
+            <!-- Button -->
+            <a href="{% url 'course' course.id %}" class="btn btn-primary">Пройти</a>
+        
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+<footer class="page-footer fixed-bottom font-small black">
+
+  {% include 'footer-content.html' %}
+
+</footer>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+h1{
+	padding: 30px;
+	font-size: 3em;
+}
+
+.c-card{
+	margin-bottom: 100px;
+}
+.c-card .card{
+	margin: 20px;
+}
+
+.card-img-top {
+	height: 280px;
+	object-fit: cover;
+}

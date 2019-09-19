@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}
+  Символы | HanYu
+{% endblock %}
+
+{% load static %}
+{% block head %}
+  <link href="{% static "css/character.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="demo">
+        <h1>Hanzi Writer</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet explicabo, expedita commodi saepe eius, in non earum aliquam hic ratione recusandae incidunt quibusdam, quasi officiis sapiente, quisquam totam dignissimos molestias. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+
+    <form class="form-inline active-cyan-4 char-select-form js-char-form">
+      <div class="search-c">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input class="form-control character-select form-control-sm mr-3 w-75" type="text" id="character-select" maxlength="1" value="我"  placeholder="Enter character..." aria-label="Search">
+      </div>
+      <button class="btn aqua-gradient text-white">Search</button>
+    </form>
+    </div>
+  </div>
+
+  <!--Characters tabs -->
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Character</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Animate</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Draw</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <!-- Tab 1 -->
+    <div class="container tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="container intro-character">
+        <div class="row d-flex justify-content-center">
+          <div id="character-target-1"></div>
+          <div id="character-target-2"></div>
+        </div>  
+      </div>
+    </div>
+    <!-- Tab 2 -->
+    <div class="container tab-pane " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="row  d-flex justify-content-center"><h4>Character Animation</h4></div>
+      <div class="row  d-flex justify-content-center demo-target" id="animation-target"></div>
+        <div class="row  d-flex justify-content-center demo-controls">
+          <form class="form-inline">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" checked="checked" id="animation-show-outline" /> Show Outline
+              </label>
+              <button class="btn btn-mdb-color" id="animate" style="color: white;">Animate</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    <!-- Tab 3 -->
+    <div class="container tab-pane " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="row  d-flex justify-content-center"><h4>Draw Character</h4></div>
+      <div class="row  d-flex justify-content-center demo-target" id="quiz-target"></div>
+      <div class="row  d-flex justify-content-center demo-controls">
+        <form class="form-inline">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" checked="checked" id="quiz-show-outline" /> Show Outline
+            </label>
+          <button class="btn btn-mdb-color" id="animate" style="color: white;">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script type="application/javascript" src="{% static 'js/hanzi-writer.min.js' %}"></script>
+  <script type="application/javascript" src="{% static 'js/demo.js' %}"></script>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+{% endblock %}

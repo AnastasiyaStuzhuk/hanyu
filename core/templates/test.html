@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Тест | HanYu
+{% endblock %}
+
+{% block head %}
+  {% load static %}
+  <link href="{% static "css/test.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content%}
+
+
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+      <h1>Test</h1>
+  </div>
+</div>
+
+  <!-- Card -->
+  <div class="container d-flex justify-content-center">
+  
+    <div class="card">
+
+      <!-- Card character-->
+      <div class="view overlay">
+        <div class="t_character">{{ word.hieroglyph }}</div>
+        <a href="#!">
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+      <!-- Card content -->
+      <div class="card-body">
+
+        <!-- Title -->
+        <h4 class="card-title">Choose your answer...</h4>
+
+        <!-- Choose button -->
+        <form method="POST" action="">
+          {% csrf_token %}
+          <input type="hidden" value="{{word_number}}" name="word_number">
+
+
+          <div class="row d-flex justify-content-center c-btn">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              {% for variant in variants %}
+                <label class="btn btn-secondary btn-light-green">
+                  <input value="{{variant.id}}" type="radio" id="{{variant.id}}" name="response" autocomplete="off">
+                  {{ variant.translation }}
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+      
+        <!-- Button -->
+          <div class="btn-next text-right">
+            <button href="#" class="btn btn-link" type="submit">
+              <h5 class="waves-effect waves-light">Следующий вопрос<i class="fas fa-angle-double-right ml-2"></i></h5>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Card -->
+  </div>
+
+{% endblock%}

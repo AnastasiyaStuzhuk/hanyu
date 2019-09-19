@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{course.name}} | Курсы | HanYu
+{% endblock %}
+
+{% block head %}
+  {% load static %}
+  <link href="{% static "css/course-detail.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <h1>{{course.name}} | Lessons</h1>
+  </div>
+  <div class="container c-card">
+    <div class="row  justify-content-center">
+      {% for lesson in opened_lessons %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-header text-center h5">{{lesson.name}}</div>
+          <img class="card-img-top" src="{{ MEDIA_URL }}{{lesson.thumbnail.url}}" alt="">
+          <div class="card-footer text-center">
+            <a href="{% url 'lesson' lesson.id %}" class="btn btn-light-green">Начать</a>
+          </div>
+        </div>
+      {% endfor %}
+      {% for lesson in closed_lessons %}
+        <div class="card" style="width: 18rem;">
+          <div class="card-header text-center h5">{{lesson.name}}</div>
+          <img class="card-img-top" src="{{ MEDIA_URL }}{{lesson.thumbnail.url}}" alt="">
+          <div class="card-footer text-center">
+            <a class="btn btn-light-green disabled">Начать</a>
+          </div>
+        </div>
+      {% endfor %}
+
+
+      
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+<footer class="page-footer fixed-bottom font-small black">
+
+  {% include 'footer-content.html' %}
+
+</footer>
+
+{% endblock %}

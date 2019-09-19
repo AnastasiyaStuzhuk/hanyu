@@ -1,0 +1,35 @@
+{% if user.is_authenticated %}
+  <!-- Left -->
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'courses' %}">Курсы</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'characters' %}">Символы</a>
+    </li>
+  </ul>
+{% endif %}
+  
+<!-- Right -->
+<ul class="navbar-nav nav-flex-icons">
+  {% if user.is_authenticated %}
+    <li class="nav-item">
+      <a href="{% url 'logout' %}" class="nav-link border border-light rounded waves-effect waves-light">
+        <i class="fas fa-sign-out-alt"></i>
+        Выйти
+      </a>
+    </li>
+  {% else %}
+    <li class="nav-item mr-2">
+      <a href="{% url 'login' %}" class="nav-link border border-light rounded waves-effect waves-light">
+        <i class="fas fa-sign-in-alt"></i>Войти
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'django_registration_register' %}" class="nav-link border border-light rounded waves-effect waves-light">
+        <i class="fas fa-user-plus"></i>
+        Регистрация
+      </a>
+    </li>
+  {% endif %}
+</ul>

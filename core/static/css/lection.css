@@ -1,0 +1,47 @@
+
+.nav-link{
+	color: black;
+}
+
+.lesson-title {
+	text-align: center;
+}
+
+.dialog h1, h2 {
+	margin-bottom: 1rem;
+	line-height: 1.2;
+	font-weight: 500;
+}
+
+.dialog h1 {
+	padding: 50px;
+
+	text-align: center;
+	font-size: 2rem;
+}
+.dialog h2 {
+	font-size: 1.25rem;
+}
+
+.dialog p {
+	font-size: 1.1rem;
+	line-height: 2rem;
+}
+
+.grammar {
+	padding: 50px
+}
+
+.grammar blockquote {
+	padding: 30px;
+	font-size: 1.1rem;
+	border-left: .25rem solid #eceeef;
+	background-color: rgba(76, 175, 80, 0.2);
+}
+.grammar blockquote strong {
+	font-weight: 700;
+}
+
+.lesson-detail {
+	padding-bottom: 80px;
+}

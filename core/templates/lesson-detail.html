@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Урок | {{object.name}}
+{% endblock %}
+
+
+{% block head %}
+  {% load static %}
+  <link href="{% static "css/lection.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="lesson-detail">
+  <div class="container">
+    <div class="container">
+      <div class="row d-flex mt-4 justify-content-center">
+        <div class="lesson-title">
+          <h1>{{object.name}}</h1>
+          <a href="{% url 'test' lesson_id=object.id %}">Пройти тест</a>
+        </div>
+      </div>
+    </div>
+    <!--Characters tabs -->
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="text-tab"
+            data-toggle="tab"
+            href="#text"
+            role="tab"
+            aria-controls="text"
+            aria-selected="true"
+          >Текст</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="words-tab"
+            data-toggle="tab"
+            href="#words"
+            role="tab"
+            aria-controls="words"
+            aria-selected="false"
+          >Новые слова</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="grammar-tab"
+            data-toggle="tab"
+            href="#grammar"
+            role="tab"
+            aria-controls="grammar"
+            aria-selected="false"
+          >Грамматика</a>
+        </li>
+      </ul>
+  
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="text"  role="tabpanel" aria-labelledby="text-tab">
+          <div class="container dialog">
+            {{ object.formatted_content|safe}}
+          </div>
+        </div>
+        <div class="tab-pane fade show" id="words"  role="tabpanel" aria-labelledby="words-tab">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Слово</th>
+                <th scope="col">Транскрипция</th>
+                <th scope="col">Перевод</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for word in object.words.all %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{ word.hieroglyph }}</td>
+                <td>{{ word.translation }}</td>
+                <td>{{ word.transcription }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="tab-pane fade show grammar" id="grammar"  role="tabpanel" aria-labelledby="grammar-tab">
+          {{ object.formatted_grammar|safe}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
